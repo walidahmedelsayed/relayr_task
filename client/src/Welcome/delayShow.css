@@ -1,0 +1,8 @@
+.delay-transition {
+  opacity: 0;
+  transition: 0.5s ease-in;
+}
+
+.delay-transition.delay--show {
+  opacity: 1;
+}
