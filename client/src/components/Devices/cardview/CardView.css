@@ -1,0 +1,110 @@
+h2 {
+  font-size: 150%;
+}
+
+.readings-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.readings-counter {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.75;
+}
+
+.readings-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-gap: 1.5em;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  padding: 1em;
+  border: 1px solid hsl(0, 0%, 90%);
+}
+
+.card-header {
+  margin: 0 0 0.5em;
+  border-bottom: 1px solid hsl(0, 0%, 90%);
+}
+
+.card-header-meta {
+  font-size: 11px;
+  font-weight: 600;
+  color: hsla(0, 0%, 0%, 0.5);
+  text-align: center;
+}
+
+.card-header-title {
+  margin: 0;
+  padding: 0 0 0.5em;
+  font-size: 17px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.statistics {
+  margin: 1.5em 0;
+}
+
+.statistic {
+  margin: 1em 0;
+  text-align: center;
+}
+
+.statistic-label {
+  margin: 0 0 0.25em;
+  font-size: 12px;
+  color: hsla(0, 0%, 0%, 0.5);
+}
+
+.statistic-value {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.statistic:first-child .statistic-value {
+  font-size: 22px;
+}
+
+.status-indicator {
+  position: relative;
+}
+
+.status-indicator:before {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-top: -4px;
+  position: absolute;
+  top: 50%;
+  left: -16px;
+}
+
+.status-indicator-active:before {
+  background: hsl(150, 86%, 53%);
+}
+
+.status-indicator-inactive:before {
+  background: hsl(356, 86%, 53%);
+}
+
+.btn {
+  display: inline-block;
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 14px;
+  color: #fff;
+  background: hsl(210, 100%, 55%);
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+}

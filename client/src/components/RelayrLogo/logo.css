@@ -1,0 +1,8 @@
+.logo {
+  width: 120px;
+  margin: 0 auto 0.5em;
+}
+
+.logo svg {
+  display: block;
+}
