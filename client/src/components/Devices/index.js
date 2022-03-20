@@ -8,30 +8,39 @@ import TableView from "./tableview/TableView";
 import { LoadingButton } from "@mui/lab";
 import "./index.css";
 
+const INITIAL_DEVICES_TO_SHOW = 16;
+
 const Home = ({ devices, view, setDevices }) => {
-  const [loadedDevices, setLoadedDevices] = useState(20);
+  const [loadedDevices, setLoadedDevices] = useState(INITIAL_DEVICES_TO_SHOW);
+  const [devicesToShow, setDevicesToShow] = useState(
+    devices.slice(0, loadedDevices)
+  );
 
   const handleLoadMore = () => {
-    setLoadedDevices(loadedDevices + 20);
+    setLoadedDevices(loadedDevices + INITIAL_DEVICES_TO_SHOW);
   };
 
   useEffect(() => {
     async function fetchData() {
       const devicesData = await fetchDevices();
-      setDevices(devicesData.slice(0, loadedDevices));
+      setDevices(devicesData);
     }
     fetchData();
-  }, [loadedDevices, setDevices]);
+  }, []);
+
+  useEffect(() => {
+    setDevicesToShow(devices.slice(0, loadedDevices));
+  }, [loadedDevices, setDevicesToShow, devices]);
 
   return (
     <div>
       <ViewController />
-      {view === "Table" && <TableView devices={devices} />}
-      {view === "Card" && <CardView devices={devices} />}
-      {devices.length >= 20 && (
+      {view === "Table" && <TableView devices={devicesToShow} />}
+      {view === "Card" && <CardView devices={devicesToShow} />}
+      {devicesToShow.length >= INITIAL_DEVICES_TO_SHOW && (
         <div className="LoadingBtn">
           <LoadingButton onClick={() => handleLoadMore()}>
-            Load More
+            Load More Devices
           </LoadingButton>
         </div>
       )}

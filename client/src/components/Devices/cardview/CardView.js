@@ -1,7 +1,12 @@
 import React from "react";
+import { updateDevice } from "../../../services/DevicesData";
 import "./CardView.css";
 
 const CardView = ({ devices }) => {
+  const handleToggleStatus = async (deviceId, status) => {
+    const updated = await updateDevice(deviceId, { active: !status });
+    console.log(updated);
+  };
   return (
     <ul className="readings-list">
       {devices.map((device) => (
@@ -36,7 +41,13 @@ const CardView = ({ devices }) => {
                 </div>
               </div>
 
-              <button type="button" className="btn" onClick={() => alert("ww")}>
+              <button
+                type="button"
+                className="btn"
+                onClick={() =>
+                  handleToggleStatus(device.deviceId, device.active)
+                }
+              >
                 Toggle status
               </button>
             </div>
