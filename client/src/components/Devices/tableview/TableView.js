@@ -1,4 +1,6 @@
 import React from "react";
+import { updateDevice } from "../../../services/DevicesData";
+import { connect } from "react-redux";
 import {
   Table,
   TableBody,
@@ -9,8 +11,14 @@ import {
   Paper,
   Button,
 } from "@mui/material";
+import { updateDeviceStatus } from "../../../actions/devices";
 
-const TableView = ({ devices }) => {
+const TableView = ({ devices, updateDeviceStatus }) => {
+  const handleToggleStatus = async (deviceId, status) => {
+    const updated = await updateDevice(deviceId, { active: !status });
+    if (updated) updateDeviceStatus(deviceId);
+    else alert("Failed to toggle device status");
+  };
   return (
     <TableContainer component={Paper}>
       <span data-testid="table__view__test__id" />
@@ -40,7 +48,12 @@ const TableView = ({ devices }) => {
                 </TableCell>
                 <TableCell align="right">{device.zipCode}</TableCell>
                 <TableCell align="right">
-                  <Button variant="outlined" onClick={() => alert("")}>
+                  <Button
+                    variant="outlined"
+                    onClick={() =>
+                      handleToggleStatus(device.deviceId, device.active)
+                    }
+                  >
                     Toggle status
                   </Button>
                 </TableCell>
@@ -53,4 +66,6 @@ const TableView = ({ devices }) => {
   );
 };
 
-export default TableView;
+export default connect(null, {
+  updateDeviceStatus,
+})(TableView);

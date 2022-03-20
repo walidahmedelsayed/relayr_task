@@ -2,6 +2,7 @@ import {
   FETCHING_DEVICES_SUCCESS,
   SEARCH_DEVICE,
   UPDATE_DEVICES_VIEW,
+  UPDATE_DEVICE_STATUS,
 } from "../actions/actionTypes";
 
 const INITIAL_STATE = {
@@ -32,6 +33,17 @@ const devicesReducer = (state = INITIAL_STATE, action) => {
           ),
         ],
       };
+
+    case UPDATE_DEVICE_STATUS:
+      const device = state.devices.find((d) => d.deviceId === action.payload);
+      device.active = !device.active;
+
+      return {
+        ...state,
+        devices: [...state.devices],
+        filteredDevices: [...state.filteredDevices],
+      };
+
     default:
       return state;
   }

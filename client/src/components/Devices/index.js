@@ -26,7 +26,7 @@ const Home = ({ devices, view, setDevices }) => {
       setDevices(devicesData);
     }
     fetchData();
-  }, []);
+  }, [setDevices]);
 
   useEffect(() => {
     setDevicesToShow(devices.slice(0, loadedDevices));

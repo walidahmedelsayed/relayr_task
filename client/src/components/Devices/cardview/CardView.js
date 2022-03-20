@@ -1,11 +1,14 @@
 import React from "react";
+import { updateDeviceStatus } from "../../../actions/devices";
 import { updateDevice } from "../../../services/DevicesData";
+import { connect } from "react-redux";
 import "./CardView.css";
 
-const CardView = ({ devices }) => {
+const CardView = ({ devices, updateDeviceStatus }) => {
   const handleToggleStatus = async (deviceId, status) => {
     const updated = await updateDevice(deviceId, { active: !status });
-    console.log(updated);
+    if (updated) updateDeviceStatus(deviceId);
+    else alert("Failed to toggle device status");
   };
   return (
     <ul className="readings-list">
@@ -57,4 +60,7 @@ const CardView = ({ devices }) => {
     </ul>
   );
 };
-export default CardView;
+
+export default connect(null, {
+  updateDeviceStatus,
+})(CardView);
