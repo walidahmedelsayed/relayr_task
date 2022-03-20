@@ -6,6 +6,11 @@ export const fetchDevices = async () => {
   return data.data;
 };
 
+export const getDevice = async (deviceId) => {
+  const { data } = await axios.get(BACKEND_DEVICES_URL + deviceId);
+  return data.data;
+};
+
 export const updateDevice = async (deviceId, updatedData) => {
   try {
     await axios.patch(BACKEND_DEVICES_URL + deviceId, updatedData);

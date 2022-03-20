@@ -1,8 +1,9 @@
 import React from "react";
 import { updateDeviceStatus } from "../../../actions/devices";
-import { updateDevice } from "../../../services/DevicesData";
+import { updateDevice } from "../../../services/Devices";
 import { connect } from "react-redux";
 import "./CardView.css";
+import { Link } from "react-router-dom";
 
 const CardView = ({ devices, updateDeviceStatus }) => {
   const handleToggleStatus = async (deviceId, status) => {
@@ -19,7 +20,9 @@ const CardView = ({ devices, updateDeviceStatus }) => {
               <div className="card-header-meta">
                 {new Date(device.updatedAt).toLocaleString()}
               </div>
-              <h3 className="card-header-title">{device.deviceName}</h3>
+              <Link to={"/" + device.deviceId} className="nav-link">
+                <h3 className="card-header-title">{device.deviceName}</h3>
+              </Link>
             </div>
             <div className="card-body">
               <div className="statistics">

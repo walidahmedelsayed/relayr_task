@@ -5,14 +5,12 @@ import {
   FormControl,
   FormControlLabel,
   RadioGroup,
-  FormLabel,
   Radio,
 } from "@mui/material";
 
 const ViewController = ({ view, updateView }) => {
   return (
     <FormControl component="fieldset">
-      <FormLabel component="legend">Select view</FormLabel>
       <RadioGroup
         row
         aria-label="data-views"
@@ -20,8 +18,12 @@ const ViewController = ({ view, updateView }) => {
         value={view}
         onChange={(e) => updateView(e.target.value)}
       >
-        <FormControlLabel value="Card" control={<Radio />} label="Card" />
-        <FormControlLabel value="Table" control={<Radio />} label="Table" />
+        <FormControlLabel value="Card" control={<Radio />} label="Card View" />
+        <FormControlLabel
+          value="Table"
+          control={<Radio />}
+          label="Table View"
+        />
       </RadioGroup>
     </FormControl>
   );

@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { setDevices } from "../../actions/devices";
-import { fetchDevices } from "../../services/DevicesData";
+import { fetchDevices } from "../../services/Devices";
 import ViewController from "../ViewController/ViewController";
 import CardView from "./cardview/CardView";
 import TableView from "./tableview/TableView";
 import { LoadingButton } from "@mui/lab";
 import "./index.css";
+import Search from "../Search/Search";
 
 const INITIAL_DEVICES_TO_SHOW = 16;
 
@@ -33,7 +34,8 @@ const Home = ({ devices, view, setDevices }) => {
   }, [loadedDevices, setDevicesToShow, devices]);
 
   return (
-    <div>
+    <>
+      <Search />
       <ViewController />
       {view === "Table" && <TableView devices={devicesToShow} />}
       {view === "Card" && <CardView devices={devicesToShow} />}
@@ -44,7 +46,7 @@ const Home = ({ devices, view, setDevices }) => {
           </LoadingButton>
         </div>
       )}
-    </div>
+    </>
   );
 };
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { updateDevice } from "../../../services/DevicesData";
+import { updateDevice } from "../../../services/Devices";
 import { connect } from "react-redux";
 import {
   Table,
