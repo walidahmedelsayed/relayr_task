@@ -4,6 +4,7 @@ const bodyParser = require("koa-bodyparser");
 const cors = require("@koa/cors");
 const deviceServiceMock = require("./mocks/deviceService/deviceServiceMock.js");
 const { luckyBreak } = require("./mocks/utils.js");
+const { publishNotification } = require("./publisher");
 
 const SERVER_PORT = 8888;
 
@@ -42,6 +43,12 @@ router.patch("/api/devices/:id", async (ctx, next) => {
     ctx.throw(418);
   } else {
     deviceService.setDevice(deviceId, { ...device, ...ctx.request.body });
+    const msg = {
+      deviceId,
+      updatedValues: { ...ctx.request.body },
+      message: "Device status toggled successfully",
+    };
+    publishNotification(Buffer.from(JSON.stringify(msg)));
     ctx.status = 204;
   }
 
