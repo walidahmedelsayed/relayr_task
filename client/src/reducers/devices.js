@@ -4,9 +4,10 @@ import {
   UPDATE_DEVICES_VIEW,
   UPDATE_DEVICE_STATUS,
 } from "../actions/actionTypes";
+import { VIEWS_TYPES } from "../components/ViewController/viewsTypes";
 
 const INITIAL_STATE = {
-  view: "Card",
+  view: VIEWS_TYPES.CARD,
   devices: [],
   filteredDevices: [],
 };

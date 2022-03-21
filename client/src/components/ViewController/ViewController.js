@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { updateView } from "../../actions/devices";
+import { VIEWS_TYPES } from "./viewsTypes";
 import {
   FormControl,
   FormControlLabel,
@@ -18,9 +19,13 @@ const ViewController = ({ view, updateView }) => {
         value={view}
         onChange={(e) => updateView(e.target.value)}
       >
-        <FormControlLabel value="Card" control={<Radio />} label="Card View" />
         <FormControlLabel
-          value="Table"
+          value={VIEWS_TYPES.CARD}
+          control={<Radio />}
+          label="Card View"
+        />
+        <FormControlLabel
+          value={VIEWS_TYPES.TABLE}
           control={<Radio />}
           label="Table View"
         />

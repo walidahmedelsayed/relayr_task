@@ -12,6 +12,7 @@ import {
   Button,
 } from "@mui/material";
 import { updateDeviceStatus } from "../../../actions/devices";
+import { Link } from "react-router-dom";
 
 const TableView = ({ devices, updateDeviceStatus }) => {
   const handleToggleStatus = async (deviceId, status) => {
@@ -40,7 +41,9 @@ const TableView = ({ devices, updateDeviceStatus }) => {
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell component="th" scope="row">
-                  {device.deviceName}
+                  <Link to={"/" + device.deviceId} className="nav-link">
+                    {device.deviceName}
+                  </Link>
                 </TableCell>
                 <TableCell align="right">{device.deviceModel}</TableCell>
                 <TableCell align="right">
