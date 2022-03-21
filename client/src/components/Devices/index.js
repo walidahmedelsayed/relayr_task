@@ -8,6 +8,7 @@ import TableView from "./tableview/TableView";
 import { LoadingButton } from "@mui/lab";
 import "./index.css";
 import Search from "../Search/Search";
+import { VIEWS_TYPES } from "../ViewController/viewsTypes";
 
 const INITIAL_DEVICES_TO_SHOW = 16;
 
@@ -37,8 +38,8 @@ const Home = ({ devices, view, setDevices }) => {
     <>
       <Search />
       <ViewController />
-      {view === "Table" && <TableView devices={devicesToShow} />}
-      {view === "Card" && <CardView devices={devicesToShow} />}
+      {view === VIEWS_TYPES.TABLE && <TableView devices={devicesToShow} />}
+      {view === VIEWS_TYPES.CARD && <CardView devices={devicesToShow} />}
       {devicesToShow.length >= INITIAL_DEVICES_TO_SHOW && (
         <div className="LoadingBtn">
           <LoadingButton onClick={() => handleLoadMore()}>
