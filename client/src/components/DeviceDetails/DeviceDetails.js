@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
+import MeasurementsChart from "../MeasurementsChart/MeasurementsChart";
 import {
   Container,
   Typography,
@@ -12,7 +13,6 @@ import {
   TableBody,
   TableContainer,
 } from "@mui/material";
-import MeasurementsChart from "../MeasurementsChart/MeasurementsChart";
 
 const DeviceDetails = ({ devices }) => {
   const { id } = useParams();
@@ -39,7 +39,7 @@ const DeviceDetails = ({ devices }) => {
           <Typography>
             Status: {device.active ? "Active" : "Inactive"}
           </Typography>
-          <Typography>Zipcode: {device.zipCode}</Typography>
+          <Typography>Zip code: {device.zipCode}</Typography>
 
           <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} aria-label="alert table">

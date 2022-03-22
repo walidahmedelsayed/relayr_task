@@ -1,6 +1,6 @@
 import React from "react";
-import { BrowserRouter as Router, Link } from "react-router-dom";
-import { screen, render, fireEvent } from "@testing-library/react";
+import { BrowserRouter as Router } from "react-router-dom";
+import { render } from "@testing-library/react";
 import DeviceDetails from "./DeviceDetails";
 import devices from "../../fixtures/devices.json";
 import { Provider } from "react-redux";
