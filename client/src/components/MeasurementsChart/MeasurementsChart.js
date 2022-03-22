@@ -14,7 +14,6 @@ const MeasurementsChart = ({ device }) => {
       {device.measurementModels.map((measurement, index) => (
         <div key={`${index}`}>
           {device.measurements.map((m, i) => {
-            console.log(m[index]);
             return (
               <>
                 <Typography>
