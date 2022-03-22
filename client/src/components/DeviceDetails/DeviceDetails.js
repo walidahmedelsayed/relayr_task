@@ -23,7 +23,6 @@ const DeviceDetails = ({ devices }) => {
     setDevice(deviceData);
   }, [devices, id]);
 
-  console.log(device);
   return (
     <div>
       {device && (

@@ -1,29 +1,7 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
-import Slider from "@material-ui/core/Slider";
-import { makeStyles } from "@material-ui/core/styles";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    height: theme.spacing(4),
-  },
-  rail: {
-    height: theme.spacing(4),
-  },
-  track: {
-    height: theme.spacing(4),
-  },
-  mark: {
-    height: theme.spacing(4),
-    backgroundColor: theme.palette.background.default,
-  },
-  thumb: {
-    display: "none",
-  },
-}));
+import { Box, Typography, Slider } from "@mui/material";
 
 const MeasurementsChart = ({ device }) => {
-  const classes = useStyles();
   return (
     <Box
       sx={{
@@ -43,13 +21,6 @@ const MeasurementsChart = ({ device }) => {
             max={measurement.max}
             marks
             valueLabelDisplay="on"
-            classes={{
-              root: classes.root,
-              rail: classes.rail,
-              track: classes.track,
-              thumb: classes.thumb,
-              mark: classes.mark,
-            }}
           />
         </div>
       ))}

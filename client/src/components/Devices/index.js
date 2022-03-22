@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { setDevices } from "../../actions/devices";
 import { fetchDevices } from "../../services/Devices";
-import ViewController from "../ViewController/ViewController";
+import ViewOptions from "../ViewOptions/ViewOptions";
 import CardView from "./cardview/CardView";
 import TableView from "./tableview/TableView";
 import { LoadingButton } from "@mui/lab";
 import "./index.css";
 import Search from "../Search/Search";
-import { VIEWS_TYPES } from "../ViewController/viewsTypes";
+import { VIEWS_TYPES } from "../ViewOptions/viewsTypes";
 
 const INITIAL_DEVICES_TO_SHOW = 16;
 
@@ -37,7 +37,7 @@ const Home = ({ devices, view, setDevices }) => {
   return (
     <>
       <Search />
-      <ViewController />
+      <ViewOptions />
       {view === VIEWS_TYPES.TABLE && <TableView devices={devicesToShow} />}
       {view === VIEWS_TYPES.CARD && <CardView devices={devicesToShow} />}
       {devicesToShow.length >= INITIAL_DEVICES_TO_SHOW && (

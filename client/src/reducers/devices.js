@@ -4,7 +4,7 @@ import {
   UPDATE_DEVICES_VIEW,
   UPDATE_DEVICE_STATUS,
 } from "../actions/actionTypes";
-import { VIEWS_TYPES } from "../components/ViewController/viewsTypes";
+import { VIEWS_TYPES } from "../components/ViewOptions/viewsTypes";
 
 const INITIAL_STATE = {
   view: VIEWS_TYPES.CARD,

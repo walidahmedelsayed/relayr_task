@@ -9,7 +9,7 @@ import {
   Radio,
 } from "@mui/material";
 
-const ViewController = ({ view, updateView }) => {
+const ViewOptions = ({ view, updateView }) => {
   return (
     <FormControl component="fieldset">
       <RadioGroup
@@ -42,4 +42,4 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, {
   updateView,
-})(ViewController);
+})(ViewOptions);
