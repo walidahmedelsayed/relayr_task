@@ -2,6 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "dependencies": {
+    "@emotion/styled": "^11.8.1",
     "@mui/lab": "^5.0.0-alpha.74",
     "@mui/material": "^5.5.2",
     "@mui/styles": "^5.5.1",
