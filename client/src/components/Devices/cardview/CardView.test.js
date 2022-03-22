@@ -23,18 +23,4 @@ describe("test the view devices with card view", () => {
     const data = container.getElementsByTagName("li");
     expect(data.length).toBe(devices.length);
   });
-
-  it("toggle status is triggered", async () => {
-    const { container } = render(
-      <Provider store={store}>
-        <Router>
-          <CardView devices={devices} updateDeviceStatus={mockFunction} />
-        </Router>
-      </Provider>
-    );
-
-    const toggleBtn = screen.getByText(/Toggle status/i);
-    fireEvent.click(toggleBtn);
-    expect(mockFunction).toBeCalledTimes(1);
-  });
 });

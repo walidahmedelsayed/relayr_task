@@ -14,15 +14,16 @@ const MeasurementsChart = ({ device }) => {
       {device.measurementModels.map((measurement, index) => (
         <div key={`${index}`}>
           {device.measurements.map((m, i) => {
+            console.log(m[index]);
             return (
               <>
                 <Typography>
                   Measurement Name: {measurement.name} at{" "}
-                  {new Date(m[index][i][1]).toDateString()}
+                  {m[index] && new Date(m[index][1]).toDateString()}
                 </Typography>
                 <Slider
                   aria-label={measurement.name}
-                  value={m[index][i][0]}
+                  value={m[index] && m[index][0]}
                   step={10}
                   min={measurement.min}
                   max={measurement.max}

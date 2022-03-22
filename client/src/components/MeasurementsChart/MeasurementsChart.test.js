@@ -7,6 +7,6 @@ describe("Test the chart component", () => {
   it("render the chart component", () => {
     render(<MeasurementsChart device={devices[0]} />);
     const measurement = screen.getAllByText(/Measurement Name/i);
-    expect(measurement.length).toBe(2);
+    expect(measurement.length).toBe(4);
   });
 });
